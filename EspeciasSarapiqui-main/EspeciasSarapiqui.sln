@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EspeciasSarapiqui", "EspeciasSarapiqui\EspeciasSarapiqui.csproj", "{B87C2B5B-F1FD-413E-B7B5-609ADD3248F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B87C2B5B-F1FD-413E-B7B5-609ADD3248F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87C2B5B-F1FD-413E-B7B5-609ADD3248F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87C2B5B-F1FD-413E-B7B5-609ADD3248F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87C2B5B-F1FD-413E-B7B5-609ADD3248F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87F79273-A93A-44E8-9FE0-80C2155742E7}
+	EndGlobalSection
+EndGlobal

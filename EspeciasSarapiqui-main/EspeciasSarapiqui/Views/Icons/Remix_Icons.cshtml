@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Remix Icons";
+    ViewBag.subTitle = "Icons";
+    Layout = null;
+}
+
+
+@Html.Partial("~/Views/Shared/html.cshtml")
+
+<head>
+    @Html.Partial("~/Views/Shared/title-meta.cshtml")
+
+    @Html.Partial("~/Views/Shared/head-css.cshtml")
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        @Html.Partial("~/Views/Shared/menu.cshtml")
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    @Html.Partial("~/Views/Shared/page-title.cshtml")
+
+                    <div class="row">
+                        <div class="col-12" id="icons"></div> <!-- end col-->
+                    </div><!-- end row -->
+                    <!-- end row -->
+
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+            @Html.Partial("~/Views/Shared/footer.cshtml")
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+    @Html.Partial("~/Views/Shared/right-sidebar.cshtml")
+
+    @Html.Partial("~/Views/Shared/footer-scripts.cshtml")
+
+    <!-- Remixicons Icons Demo js -->
+    <script src="~/assets/js/pages/icons-remix.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.min.js"></script>
+
+</body>
+</html>

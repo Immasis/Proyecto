@@ -1,0 +1,15 @@
+.vs/
+**/.vs/
+.idea/
+**/.idea/
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.log
+*.tmp
+Thumbs.db
+.DS_Store

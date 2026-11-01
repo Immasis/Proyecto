@@ -1,0 +1,39 @@
+
+## Visual Studio
+.vs/
+**/.vs/
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+## Visual Studio user files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## JetBrains / Rider
+.idea/
+**/.idea/
+
+## NuGet
+*.nupkg
+**/packages/*
+
+## Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+## Windows
+Thumbs.db
+Desktop.ini
+
+## macOS
+.DS_Store
