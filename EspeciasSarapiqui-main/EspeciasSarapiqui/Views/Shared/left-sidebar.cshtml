@@ -36,6 +36,28 @@
                 </a>
             </li>
 
+            <li class="side-nav-title">Gestión comercial</li>
+            <li class="side-nav-item">
+                <a href="@Url.Action("Index", "Products")" class="side-nav-link">
+                    <i class="ri-box-3-line"></i><span> Productos </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="@Url.Action("Index", "Customers")" class="side-nav-link">
+                    <i class="ri-user-3-line"></i><span> Clientes </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="@Url.Action("Index", "Inventory")" class="side-nav-link">
+                    <i class="ri-archive-line"></i><span> Inventario </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="@Url.Action("Index", "Sales")" class="side-nav-link">
+                    <i class="ri-shopping-cart-line"></i><span> Ventas </span>
+                </a>
+            </li>
+
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
                     <i class="ri-pages-line"></i>
@@ -96,7 +118,10 @@
                             <a href="@Url.Action("Register", "Authentication")">Register</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Logout", "Authentication")">Logout</a>
+                            <form asp-controller="Authentication" asp-action="Logout" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="side-nav-link border-0 bg-transparent w-100 text-start">Logout</button>
+                            </form>
                         </li>
                         <li>
                             <a href="@Url.Action("Forgot-Password", "Authentication")">Forgot Password</a>

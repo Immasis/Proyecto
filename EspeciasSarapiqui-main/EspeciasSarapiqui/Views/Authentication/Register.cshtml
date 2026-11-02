@@ -1,4 +1,5 @@
-﻿@{
+﻿@model EspeciasSarapiqui.Models.RegisterViewModel
+@{
     ViewBag.Title = "Register";
     ViewBag.subTitle = "";
     Layout = null;
@@ -42,23 +43,29 @@
                                         </p>
 
                                         <!-- form -->
-                                        <form action="#">
+                                        <form asp-action="Register" method="post">
+                                            @Html.AntiForgeryToken()
+                                            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
                                             <div class="mb-3">
                                                 <label for="fullname" class="form-label">Full Name</label>
-                                                <input class="form-control" type="text" id="fullname"
+                                                 <input asp-for="FullName" class="form-control" type="text" id="fullname"
                                                        placeholder="Enter your name" required="">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="emailaddress" class="form-label">Email address</label>
-                                                <input class="form-control" type="email" id="emailaddress" required=""
+                                                <input asp-for="Email" class="form-control" type="email" id="emailaddress" required=""
                                                        placeholder="Enter your email">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="password" class="form-label">Password</label>
-                                                <input class="form-control" type="password" required="" id="password"
+                                             <input asp-for="Password" class="form-control" type="password" required="" id="password"
                                                        placeholder="Enter your password">
                                             </div>
-                                            <div class="mb-3">
+                                             <div class="mb-3">
+                                                 <label asp-for="ConfirmPassword" class="form-label">Confirmar contraseña</label>
+                                                 <input asp-for="ConfirmPassword" class="form-control" type="password" required="" />
+                                             </div>
+                                             <div class="mb-3">
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input"
                                                            id="checkbox-signup">
