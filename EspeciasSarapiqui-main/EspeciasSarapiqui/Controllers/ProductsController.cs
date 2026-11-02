@@ -13,7 +13,16 @@ public class ProductsController : Controller
     public ProductsController(ApplicationDbContext db) => this.db = db;
 
     [HttpGet]
-    public async Task<IActionResult> Index() => Json(await db.Products.Include(x => x.Category).Where(x => x.IsActive).OrderBy(x => x.Name).ToListAsync());
+    public async Task<IActionResult> Index()
+    {
+        var products = await db.Products
+            .Include(x => x.Category)
+            .Where(x => x.IsActive)
+            .OrderBy(x => x.Name)
+            .ToListAsync();
+
+        return View(products);
+    }
 
     [HttpPost]
     [ValidateAntiForgeryToken]

@@ -1,0 +1,67 @@
+@model IReadOnlyList<EspeciasSarapiqui.Models.CustomerListItemViewModel>
+@{
+    ViewBag.Title = "Clientes";
+    ViewBag.subTitle = "Gestión comercial";
+    Layout = null;
+}
+
+@Html.Partial("~/Views/Shared/html.cshtml")
+<head>
+    @Html.Partial("~/Views/Shared/title-meta.cshtml")
+    @Html.Partial("~/Views/Shared/head-css.cshtml")
+</head>
+<body>
+    <div class="wrapper">
+        @Html.Partial("~/Views/Shared/menu.cshtml")
+        <div class="content-page">
+            <div class="content">
+                <div class="container-fluid">
+                    @Html.Partial("~/Views/Shared/page-title.cshtml")
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="header-title mb-0">Clientes</h4>
+                                <span class="text-muted">@Model.Count cliente(s) activo(s)</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-centered table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre completo</th>
+                                            <th>Identificación</th>
+                                            <th>Correo electrónico</th>
+                                            <th>Teléfono</th>
+                                            <th>Dirección</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @if (Model.Count == 0)
+                                    {
+                                        <tr><td colspan="5" class="text-center text-muted py-4">No hay clientes activos.</td></tr>
+                                    }
+                                    else
+                                    {
+                                        foreach (var customer in Model)
+                                        {
+                                            <tr>
+                                                <td class="fw-semibold">@customer.FullName</td>
+                                                <td>@(customer.Identification ?? "—")</td>
+                                                <td>@(customer.Email ?? "—")</td>
+                                                <td>@(customer.Phone ?? "—")</td>
+                                                <td>@(customer.Address ?? "—")</td>
+                                            </tr>
+                                        }
+                                    }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("~/Views/Shared/footer.cshtml")
+        </div>
+    </div>
+    @Html.Partial("~/Views/Shared/footer-scripts.cshtml")
+</body>
+</html>

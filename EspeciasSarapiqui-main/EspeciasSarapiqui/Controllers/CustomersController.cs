@@ -13,7 +13,24 @@ public class CustomersController : Controller
     public CustomersController(ApplicationDbContext db) => this.db = db;
 
     [HttpGet]
-    public async Task<IActionResult> Index() => Json(await db.Customers.Where(x => x.IsActive).OrderBy(x => x.FullName).ToListAsync());
+    public async Task<IActionResult> Index()
+    {
+        var customers = await db.Customers
+            .Where(x => x.IsActive)
+            .OrderBy(x => x.FullName)
+            .Select(x => new CustomerListItemViewModel
+            {
+                Id = x.Id,
+                FullName = x.FullName,
+                Identification = x.Identification,
+                Email = x.Email,
+                Phone = x.Phone,
+                Address = x.Address
+            })
+            .ToListAsync();
+
+        return View(customers);
+    }
 
     [HttpPost]
     [ValidateAntiForgeryToken]

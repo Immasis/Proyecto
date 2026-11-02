@@ -14,7 +14,28 @@ public class SalesController : Controller
     public SalesController(ApplicationDbContext db) => this.db = db;
 
     [HttpGet]
-    public async Task<IActionResult> Index() => Json(await db.Sales.Include(x => x.Customer).Include(x => x.Details).OrderByDescending(x => x.SaleDate).Take(100).ToListAsync());
+    public async Task<IActionResult> Index()
+    {
+        var sales = await db.Sales
+            .OrderByDescending(x => x.SaleDate)
+            .Take(100)
+            .Select(x => new SaleListItemViewModel
+            {
+                Id = x.Id,
+                InvoiceNumber = x.InvoiceNumber,
+                SaleDate = x.SaleDate,
+                Status = x.Status,
+                PaymentMethod = x.PaymentMethod,
+                Subtotal = x.Subtotal,
+                Tax = x.Tax,
+                Total = x.Total,
+                CustomerName = x.Customer == null ? "Cliente contado" : x.Customer.FullName,
+                ItemCount = x.Details.Count
+            })
+            .ToListAsync();
+
+        return View(sales);
+    }
 
     [HttpPost]
     [ValidateAntiForgeryToken]

@@ -14,7 +14,27 @@ public class InventoryController : Controller
     public InventoryController(ApplicationDbContext db) => this.db = db;
 
     [HttpGet]
-    public async Task<IActionResult> Index() => Json(await db.Products.Include(x => x.Category).Where(x => x.IsActive).OrderBy(x => x.Stock).ToListAsync());
+    public async Task<IActionResult> Index()
+    {
+        var inventory = await db.Products
+            .Where(x => x.IsActive)
+            .OrderBy(x => x.Stock)
+            .Select(x => new InventoryItemViewModel
+            {
+                Id = x.Id,
+                Sku = x.Sku,
+                Name = x.Name,
+                Unit = x.Unit,
+                Stock = x.Stock,
+                MinimumStock = x.MinimumStock,
+                PurchasePrice = x.PurchasePrice,
+                SalePrice = x.SalePrice,
+                Category = x.Category.Name
+            })
+            .ToListAsync();
+
+        return View(inventory);
+    }
 
     [HttpPost]
     [ValidateAntiForgeryToken]

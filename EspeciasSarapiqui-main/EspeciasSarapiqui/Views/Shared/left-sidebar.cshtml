@@ -31,7 +31,6 @@
             <li class="side-nav-item">
                 <a href="@Url.Action("Index", "Dashboard")" class="side-nav-link">
                     <i class="ri-dashboard-3-line"></i>
-                    <span class="badge bg-success float-end">9+</span>
                     <span> Dashboard </span>
                 </a>
             </li>
@@ -59,78 +58,12 @@
             </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
-                    <i class="ri-pages-line"></i>
-                    <span> Pages </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarPages">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="@Url.Action("Starter-Page", "Pages")">Starter Page</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Contact-List", "Pages")">Contact List</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Profile", "Pages")">Profile</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Timeline", "Pages")">Timeline</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Invoice", "Pages")">Invoice</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("FAQ", "Pages")">FAQ</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Pricing", "Pages")">Pricing</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Maintenance", "Pages")">Maintenance</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Error-404", "Pages")">Error 404</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Error-404-alt", "Pages")">Error 404-alt</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Error-500", "Pages")">Error 500</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false" aria-controls="sidebarPagesAuth" class="side-nav-link">
-                    <i class="ri-group-2-line"></i>
-                    <span> Authentication </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarPagesAuth">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="@Url.Action("Login", "Authentication")">Login</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Register", "Authentication")">Register</a>
-                        </li>
-                        <li>
-                            <form asp-controller="Authentication" asp-action="Logout" method="post">
-                                @Html.AntiForgeryToken()
-                                <button type="submit" class="side-nav-link border-0 bg-transparent w-100 text-start">Logout</button>
-                            </form>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Forgot-Password", "Authentication")">Forgot Password</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Lock-Screen", "Authentication")">Lock Screen</a>
-                        </li>
-                    </ul>
-                </div>
+                <form asp-controller="Authentication" asp-action="Logout" method="post">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="side-nav-link border-0 bg-transparent w-100 text-start">
+                        <i class="ri-logout-box-line"></i><span> Cerrar sesión </span>
+                    </button>
+                </form>
             </li>
 
             <li class="side-nav-item">

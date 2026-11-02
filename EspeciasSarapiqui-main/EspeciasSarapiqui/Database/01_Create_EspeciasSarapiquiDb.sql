@@ -50,5 +50,15 @@ IF NOT EXISTS (SELECT 1 FROM dbo.Products WHERE Sku = N'CUR-001') INSERT dbo.Pro
 IF NOT EXISTS (SELECT 1 FROM dbo.Products WHERE Sku = N'ORE-001') INSERT dbo.Products(Sku, Name, Description, Unit, PurchasePrice, SalePrice, MinimumStock, Stock, CategoryId) SELECT N'ORE-001', N'Orégano seco 50 g', N'Orégano deshidratado', N'Paquete', 700, 1200, 8, 20, Id FROM dbo.Categories WHERE Name = N'Hierbas aromáticas';
 
 IF NOT EXISTS (SELECT 1 FROM dbo.Customers WHERE Identification = N'000000000') INSERT dbo.Customers(FullName, Identification, Email, Phone, Address) VALUES (N'Cliente contado', N'000000000', N'cliente@local.test', N'8888-0000', N'Cliente general');
+
+IF NOT EXISTS (SELECT 1 FROM dbo.AspNetUsers WHERE NormalizedEmail = N'ADMIN@ESPECIAS.LOCAL')
+BEGIN
+	INSERT dbo.AspNetUsers
+	(Id, UserName, NormalizedUserName, Email, NormalizedEmail, EmailConfirmed, PasswordHash, SecurityStamp, ConcurrencyStamp, FullName, IsActive)
+	VALUES
+	(N'FAAE7E0D-01BE-4948-8F49-F06100D03E68', N'admin@especias.local', N'ADMIN@ESPECIAS.LOCAL', N'admin@especias.local', N'ADMIN@ESPECIAS.LOCAL', 1,
+	 N'AQAAAAIAAYagAAAAEJwIyT6mY9V6pSB3jy1YXvVth37kETyhBtbwew5Oewiwipax8IaZDy7I7YEvgHsu+w==',
+	 CONVERT(nvarchar(36), NEWID()), CONVERT(nvarchar(36), NEWID()), N'Administrador', 1);
+END
 GO
-PRINT N'Base EspeciasSarapiquiDb creada y datos iniciales cargados. Registre el primer usuario desde /Authentication/Register.';
+PRINT N'Base EspeciasSarapiquiDb creada y datos iniciales cargados. Usuario inicial: admin@especias.local / Admin123!';
